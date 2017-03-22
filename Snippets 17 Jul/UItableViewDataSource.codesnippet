@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>TableViewDatasource</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - UITableViewDataSource Methods
+
+//Determine the number of sections table view has
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    
+    //Return the count of sections.
+    return &lt;#count#&gt;;
+}
+
+
+//Determine the number of rows in a particular section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    
+    //Return the number of rows in a section.
+    return &lt;#count#&gt;;
+}
+
+//Return the title for each header in the section
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    //Return the header string
+    return &lt;#Header Title#&gt;;
+}
+
+//Return the title of Footer for each section
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    //Return the footer string
+    return &lt;#Footer Title #&gt;;
+}
+
+//Create each cell in the tableview
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Set the unique identifier for the string
+    static NSString *cellID = &lt;# Cell ID #&gt;;
+    
+    //Make the cell reusable
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:&lt;# Cell ID #&gt;];
+    
+    //Allocate a new cell
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:&lt;# Cell ID #&gt;];
+    }
+    
+    NSString *text =[NSString stringWithFormat:@"Row %li", (long)[indexPath row]];
+    
+    //Set the text label.
+    
+    [[cell textLabel] setText:text];
+    
+    return cell;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>2EB8DDD8-D4BC-43EA-B354-210B040757F5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>A list of tableview data source</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>TableViewDatasource</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

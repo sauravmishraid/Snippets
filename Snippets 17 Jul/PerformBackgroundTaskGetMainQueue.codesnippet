@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Perform Background Task and Get Main Queue</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//Async method to get the global queue , perform background taks and update the Main queue once done
+
+dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void)
+{
+    // Perform Background tasks
+    
+    &lt;#Code To Perfrom Background Tasks#&gt;
+    
+    
+    //Get the main Queue to perform tasks.
+    dispatch_async(dispatch_get_main_queue(), ^(void)
+                   {
+                       // Perform Main thread tasks
+                       
+                       &lt;#Perform Main Thread Tasks #&gt;
+                       
+                   });
+});
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EB850F5A-26CD-44EC-B8B3-7A835AE4FBDF</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Perform Background task and update UI on main queue</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Perform Background Task and Get Main Queue</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>TableviewDelegate</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - UITableView Delegate Methods
+
+
+//Called when a row is tapped in a table view.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+//Calculate the height of each row at index path
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Return the height of the row at index path
+    return &lt;# Height #&gt;;
+}
+
+//Calculate the height of the header at index Path
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    //Return the height of the header
+    return &lt;# Height #&gt;;
+    
+}
+//Calculate the height of the footer at index Path
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    //Return the height of the footer
+    
+    return &lt;# Height #&gt;;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>DC566DAD-92FE-42C3-AEFA-233AE6147974</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>A list of tableview delegate</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>TableviewDelegate</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

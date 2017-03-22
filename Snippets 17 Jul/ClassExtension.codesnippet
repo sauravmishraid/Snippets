@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Class Extension</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//Annonymous categories to declare private methods and properties
+
+// Declare the name of the Class Extension
+@interface &lt;#View Controller #&gt; ()
+
+//Decalare the properties and methods.
+&lt;#property or method#&gt;
+
+//End of the class extension
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>96DC023F-7746-45DA-8C7C-1E9A878EDA64</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Create a class extension</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Class Extension</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>current location</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - Location Manager Methods
+
+
+//Set up the location manager
+-(void)setUpLocationManager
+{
+ 
+    //Insatantiate the location manager
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    
+    //Set the delegate
+    locationManager.delegate = self;
+    
+    //Set the properties
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    //Request Authorization, Mandatory after iOS 8.0
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 8.0)
+        [self.locationManager requestWhenInUseAuthorization];
+    
+    //Start updating locations
+    [locationManager startUpdatingLocation];
+}
+
+
+#pragma mark - Location Manager Delegates
+
+//Capture location updates
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    
+    //Get the last location
+    CLLocation *currentLocation  = [locations lastObject];
+    
+    //Check if the location is not nil
+    if (currentLocation != nil) {
+        
+        //Get latitutde and longitude
+        
+        NSString * longitudeLabel = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+
+        NSString *latitudeLabel = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        
+        
+        NSLog(@"%@ %@", longitudeLabel, latitudeLabel);
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B645FB24-6E4F-455C-8FEC-C9BB8BE9CA30</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Get the users current location</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Current location</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

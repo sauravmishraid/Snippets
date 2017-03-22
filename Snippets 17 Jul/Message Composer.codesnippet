@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Message</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - SMS controller
+
+//Send SMS
+- (void)showSMS
+{
+    
+    //Check if the device cna send SMS
+    if(![MFMessageComposeViewController canSendText])
+    {
+        
+        //Create an array of recepients
+        NSArray *recipents = @[&lt;#Recipeints#&gt;];
+        
+        //Create the message body
+        NSString *message = [NSString stringWithFormat:@"&lt;#Message Body#&gt;"];
+        
+        //Instantiate the message object
+        MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+        
+        
+        //Set the delegate
+        messageController.messageComposeDelegate = self;
+        
+        //Set the recepients
+        [messageController setRecipients:recipents];
+        
+        //Set the body
+        [messageController setBody:message];
+        
+        // Present message view controller on screen
+        [self presentViewController:messageController animated:YES completion:nil];
+    }
+    
+   
+}
+
+
+#pragma mark - Message Compose delegate
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result
+{
+    switch (result)
+    {
+            
+        case MessageComposeResultCancelled:
+        {
+            &lt;#Handle if message sending is cancelled#&gt;
+        }
+            break;
+            
+        case MessageComposeResultFailed:
+        {
+            &lt;#handle if message compose failed#&gt;
+        }
+            break;
+        case MessageComposeResultSent:
+        {
+            &lt;#handle if sent#&gt;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    //Dismiss the controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3D2CB7D0-0211-4362-AB05-E6C60854BFA4</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Message composer method and delegate</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Message composer</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>plist</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark- plist implementation
+
+//Get the Plist Path
+
+-(NSString *)getPlistPath
+{
+    //Get the array of paths
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    //Get document directory paths
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    //Create path for the new file
+    
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"&lt;#FileName#&gt;.plist"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //Check if file exists
+    if (![fileManager fileExistsAtPath: path]) {
+        
+        //create path for the file
+        path = [documentsDirectory stringByAppendingPathComponent: [NSString stringWithFormat:@"&lt;#FileName#&gt;.plist"] ];
+    }
+    
+    //return Path
+    return path;
+    
+}
+
+
+//Read the Plist file and create Data
+-(void)createPlistData
+{
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    //Check if File exists in the data
+    if ([fileManager fileExistsAtPath: [self getPlistPath]]) {
+        
+        //add existing data to the dictionary
+        self.data = [[NSMutableDictionary alloc] initWithContentsOfFile: [self getPlistPath]];
+    }
+    
+    else
+    
+    {
+        // If the file doesn’t exist, create an empty dictionary
+        self.data = [[NSMutableDictionary alloc] init];
+    }
+    
+    
+}
+
+//To insert the data into the plist
+
+-(void)plistSaveOperations
+{
+    //Create the Object to write to the plist.
+    
+    //Add the plist to the file.
+    
+    [self.data setObject:&lt;#Object#&gt; forKey:&lt;#value key#&gt;];
+    
+    //Write the dictionary to the file
+    
+    [self.data writeToFile:[self getPlistPath] atomically:YES];
+}
+
+
+//To reterive the data from the plist
+
+-(void)plistRetrieveOperations
+{
+    //Get the contents of the file in a plist
+    NSMutableDictionary *savedValue = [[NSMutableDictionary alloc] initWithContentsOfFile: [self getPlistPath]];
+    
+    //Get the saved value key
+    NSString *value = [savedValue objectForKey:&lt;#value key#&gt;];
+    
+    NSLog(@"%@",value);
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>52AF936C-B823-43D3-98B1-B12591C34B4D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Create , Retrieve Plist Operations</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Plist Operations</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

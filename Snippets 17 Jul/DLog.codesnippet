@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>DLogMacro</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+//Log data only in Debug mode and not in release mode.
+
+//Define DLog in the Debug Mode.
+
+#ifdef DEBUG
+
+//Modify NSLog to log comments along with the function name.
+
+#define DLog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+
+
+#else
+
+//Log nothing in the Release mode
+#define DLog(...)
+
+#endif
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>2D6A7B2F-7D8A-45ED-A294-8F5D82332DEB</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Custom NSLog Macro to log when Debug flag is on.</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>DLog</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

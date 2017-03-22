@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Alert Controller</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>   //Available since iOS 8.0
+    
+    //Create an UIController object
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Info"
+                                  message:@"You are using UIAlertController"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    //Create UIAlertAction for first button
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    
+    //Create UIAlertAction for second button
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    //Add Actions
+    [alert addAction:ok];
+    
+    [alert addAction:cancel];
+    
+    //Present Controller
+    [self presentViewController:alert animated:YES completion:nil];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B7DDBC1A-0CED-462C-8E23-AD36EF3F45FC</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Alert Controller with 2 actions</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UIAlertController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

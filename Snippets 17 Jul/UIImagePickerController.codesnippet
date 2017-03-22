@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>imagepicker</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - Image Picker Implemetation
+
+//Create an ImagePicker Object
+-(void)implementImagePicker
+{
+    
+    //Check if the device is camera capable
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        //Instantiate the object
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        
+        //Assign delegate to the controller
+        picker.delegate = (id)self;
+        
+        //Set Properties of the picker
+        picker.allowsEditing = YES;
+        
+        //Set the Picker type to Camera or library
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        //Present the controller
+        [self presentViewController:picker animated:YES completion:NULL];
+        
+        
+    }
+
+}
+
+#pragma mark - Image PIcker Delegate
+
+//Manipulate the image once the picker has completed picking an image
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    //Edited or the original image can be accessed
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
+    //Assign it to an image view after manipulation
+    self.&lt;#image View Name#&gt;.image = chosenImage;
+    
+    //Dismiss the controller
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+//Dismiss the picker if the user choses to cancel
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>7BDD7E64-3A5C-4531-AF2C-800D564D43A1</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Implementation for image picker</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UIImage Picker Implementation</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

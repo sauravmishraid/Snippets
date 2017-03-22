@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Mail</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+#pragma mark- Mail Composer Implemetation
+
+//Present mail composer modally
+- (void)presentModalMailComposerViewController:(BOOL)animated
+{
+    //Check if mail composer can send mails
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] init];
+        
+        //Set the mail composer delegate
+        composeViewController.mailComposeDelegate = self;
+        
+        //Set the mail subject
+        [composeViewController setSubject:&lt;#Subject#&gt;];
+        
+        //Set the mail body
+        [composeViewController setMessageBody:&lt;#Body#&gt; isHTML:YES];
+        
+        //Set the Recipeints of the mail
+        [composeViewController setToRecipients:@[&lt;#Recipients#&gt;]];
+        
+        //Present the controller
+        [self presentViewController:composeViewController animated:animated completion:nil];
+    } else
+    
+    {
+        //Log or Handle Errors
+        NSLog(@"Error to Send Message");
+    }
+}
+
+//MFMailComposer Delegate
+#pragma mark - MFMailComposeViewControllerDelegate
+
+//Handle once the sending mail operation is finished
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error
+{
+    
+    if (error) {
+        
+        //Handle Error, if any
+        NSLog(@"%@", error);
+    }
+    //Dismiss the controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>828D7DF0-BFF8-4B4C-ACA2-053EE91C8E2C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Methods to handle and send mails </string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Mail Composer Methods</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

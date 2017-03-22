@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Touch ID</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+#Pragma Mark - Touch ID
+- (void)invokeTouchID
+{
+        //Get a LA Context
+        LAContext *myContext = [[LAContext alloc]init];
+
+        NSString *myLocalizedReasonString = @"Please Authenticate using your finger";
+
+        //Check if device has Toch ID
+        if ([self doesDevichaveTouchID])
+        {
+            //Evaluate if the user is able to avail Touch ID
+            [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                      localizedReason:myLocalizedReasonString
+                                reply:^(BOOL success, NSError *error) {
+                                    if (success)
+                                    {
+                                        //Perform Code actions on success
+                                        &lt;#Perform actions on success#&gt;
+                                    }
+                                    else
+                                    {//Handle Errors
+                                        switch (error.code)
+                                        
+                                        {
+                                                
+                                            case LAErrorAuthenticationFailed:
+                                                NSLog(@"Authentication Failed");
+                                                break;
+                                                
+                                            case LAErrorUserCancel:
+                                                NSLog(@"User pressed Cancel button");
+                                                break;
+                                                
+                                            case LAErrorUserFallback:
+                                                NSLog(@"User pressed \"Enter Password\"");
+                                                break;
+                                                
+                                            default:
+                                                NSLog(@"Touch ID is not configured");
+                                                break;
+                                        }
+                                        NSLog(@"Authentication Fails");
+                                    }
+                                }];
+        } else {
+            
+            //Default Log
+            NSLog(@"Can not evaluate Touch ID");
+        }
+}
+
+
+//Method to check the touch ID availablity in the device
+-(BOOL)doesDevichaveTouchID
+{
+    LAContext *context =[LAContext new];
+    
+    NSError *error;
+    
+    BOOL devicehasTouchID = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&amp;error];
+    
+    
+    if(!devicehasTouchID)
+        return  error.code == kLAErrorTouchIDNotAvailable ? NO : YES ;
+    else
+        return YES;
+    
+}
+
+//Method to check the touch ID enrollment in the device
+-(BOOL) isTouchIDSetInTheDevice
+{
+    LAContext *context =[LAContext new];
+    
+    NSError *error;
+    
+    BOOL devicehasTouchID = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&amp;error];
+    
+    
+    if(!devicehasTouchID)
+        return  ((error.code == kLAErrorPasscodeNotSet) || (error.code == kLAErrorTouchIDNotEnrolled)) ? NO :YES;
+    else
+        return YES;
+    
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>CD3627C5-A83C-46BA-ACAE-E38A47D863F6</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Implement Touch ID</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Touch ID Snippets</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
